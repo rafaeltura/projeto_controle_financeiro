@@ -7,7 +7,7 @@
         
         <title>Controle Financeiro</title>
 
-        <link rel="stylesheet" href="./assets/style.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,31 +16,49 @@
 
     <body>
         <header>
-            <h1 id="logo">Controle Financeiro</h1>
+            <h1 id="logo">Controle$Financeiro</h1>
         </header>
 
         <main class="container">
             <section id="balance">
-                <h2>Balanço</h2>
+                <h2 class="sr-only">Balanço</h2>
                 
                 <div class="card">
-                    <h3>Entradas</h3>
+                    <h3>
+                        <span>Entradas</span>
+                        <img src="./assets/images/income.svg" alt="Imagem de entradas">
+                    </h3>
                     <p>R$ 5.000,00</p>
                 </div>
                 
                 <div class="card">
-                    <h3>Saídas</h3>
+                    <h3>
+                        <span>Saídas</span>
+                        <img src="./assets/images/expense.svg" alt="Imagem de saídas">
+                    </h3>
                     <p>R$ 2.000,00</p>
                 </div>
                 
                 <div class="card total">
-                    <h3>Total</h3>
+                    <h3>
+                        <span>Total</span>
+                        <img src="./assets/images/total.svg" alt="">
+                    </h3>
                     <p>R$ 3.000,00</p>
                 </div>
             </section>
 
             <section id="transaction">
-                <h2>Transações</h2>
+                <h2 class="sr-only">Transações</h2>
+
+                <a 
+                    class="button new"
+                    href="#"
+                    onclick="MODAL.open()"
+                >
+                    <img src="./assets/images/plus.svg" alt="Nova transação">
+                    <span>Nova Transação</span>
+                </a>
                 
                 <table id="data-table">
                     <thead>
@@ -48,6 +66,7 @@
                             <th>Descrição</th>
                             <th>Valor</th>
                             <th>Data</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,24 +74,113 @@
                             <td class="description"> Luz</td>
                             <td class="expense">- R$ 500,00</td>
                             <td class="date">23/01/2022</td>
+                            <td>
+                                <img src="./assets/images/minus.svg" alt="Remover transação">
+                            </td>
                         </tr>
                         <tr>
                             <td class="description">Criação Web Site</td>
                             <td class="income">R$ 5000,00</td>
                             <td class="date">23/01/2022</td>
+                            <td>
+                                <img src="./assets/images/minus.svg" alt="Remover transação">
+                            </td>
                         </tr>
                         <tr>
                             <td class="description">Internet</td>
                             <td class="expense">- R$ 200,00</td>
                             <td class="date">23/01/2022</td>
+                            <td>
+                                <img src="./assets/images/minus.svg" alt="Remover transação">
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </section>
         </main>
-        
+
+        <!--MODAL-->
+        <div class="modal-overlay">
+            <div class="modal">
+                <div id="form">
+                    <h2>Nova Transação</h2>
+
+                    <form action="">
+                        <div class="input-group">
+                            <label
+                                for="modal-description"
+                                class="sr-only"
+                            >
+                                Descrição
+                            </label>
+                            <input 
+                                type="text"
+                                id="modal-description"
+                                name="description"
+                                value=""
+                                placeholder="Descrição"
+
+                            />
+                        </div>
+                        
+                        <div class="input-group">
+                            <label
+                                for="modal-amount"
+                                class="sr-only"
+                            >
+                                Valor
+                            </label>
+                            <input 
+                                type="number"
+                                id="modal-amount"
+                                name="amount"
+                                step="0.01"
+                                value=""
+                                placeholder="0,00"
+
+                            />
+                            <small class="help">
+                                Utilize o sinal - (negativo) para despesas e , (vírgula) para casas decimais
+                            </small>
+                        </div>
+
+                        <div class="input-group">
+                            <label
+                                for="modal-date"
+                                class="sr-only"
+                            >
+                                Data
+                            </label>
+                            <input 
+                                type="date"
+                                id="modal-date"
+                                name="date"
+                                value=""
+                            />
+                        </div>
+
+                        <div class="input-group actions">
+                            <a 
+                                href="#"
+                                class="button cancel"
+                                onclick="MODAL.close()"
+                            >
+                                Cancelar
+                            </a>
+                            <button>
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
         <footer>
-            <p>Controle Financeiro</p>
+            <p>Controle$Financeiro</p>
         </footer>
+
+        <script src="./assets/js/script.js"></script>
     </body>
 </html>
