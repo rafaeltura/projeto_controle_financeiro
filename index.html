@@ -28,7 +28,7 @@
                         <span>Entradas</span>
                         <img src="./assets/images/income.svg" alt="Imagem de entradas">
                     </h3>
-                    <p>R$ 5.000,00</p>
+                    <p id="balance-income"></p>
                 </div>
                 
                 <div class="card">
@@ -36,7 +36,7 @@
                         <span>Saídas</span>
                         <img src="./assets/images/expense.svg" alt="Imagem de saídas">
                     </h3>
-                    <p>R$ 2.000,00</p>
+                    <p id="balance-expense"></p>
                 </div>
                 
                 <div class="card total">
@@ -44,7 +44,7 @@
                         <span>Total</span>
                         <img src="./assets/images/total.svg" alt="">
                     </h3>
-                    <p>R$ 3.000,00</p>
+                    <p id="balance-total"></p>
                 </div>
             </section>
 
@@ -54,7 +54,7 @@
                 <a 
                     class="button new"
                     href="#"
-                    onclick="MODAL.open()"
+                    onclick="MODAL.toggle()"
                 >
                     <img src="./assets/images/plus.svg" alt="Nova transação">
                     <span>Nova Transação</span>
@@ -70,30 +70,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="description"> Luz</td>
-                            <td class="expense">- R$ 500,00</td>
-                            <td class="date">23/01/2022</td>
-                            <td>
-                                <img src="./assets/images/minus.svg" alt="Remover transação">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="description">Criação Web Site</td>
-                            <td class="income">R$ 5000,00</td>
-                            <td class="date">23/01/2022</td>
-                            <td>
-                                <img src="./assets/images/minus.svg" alt="Remover transação">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="description">Internet</td>
-                            <td class="expense">- R$ 200,00</td>
-                            <td class="date">23/01/2022</td>
-                            <td>
-                                <img src="./assets/images/minus.svg" alt="Remover transação">
-                            </td>
-                        </tr>
+                    
                     </tbody>
                 </table>
             </section>
@@ -101,11 +78,14 @@
 
         <!--MODAL-->
         <div class="modal-overlay">
+            <div id="mensagem-modal" class="modal-mensagem">
+                teste
+            </div>
             <div class="modal">
                 <div id="form">
                     <h2>Nova Transação</h2>
 
-                    <form action="">
+                    <form action="" onsubmit="MODAL.submit(event)">
                         <div class="input-group">
                             <label
                                 for="modal-description"
@@ -135,7 +115,7 @@
                                 id="modal-amount"
                                 name="amount"
                                 step="0.01"
-                                value=""
+                                value="0"
                                 placeholder="0,00"
 
                             />
@@ -163,11 +143,11 @@
                             <a 
                                 href="#"
                                 class="button cancel"
-                                onclick="MODAL.close()"
+                                onclick="MODAL.toggle()"
                             >
                                 Cancelar
                             </a>
-                            <button>
+                            <button type="submit">
                                 Salvar
                             </button>
                         </div>

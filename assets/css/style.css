@@ -38,6 +38,10 @@ body{
     width: min(90vw, 800px);
     margin: auto;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
 /**
 * ===== TITLES ======
 */
@@ -253,6 +257,28 @@ td.expense {
 
 }
 
+/**
+* ===== MODAL - MENSAGEM ======
+*/
+.modal-mensagem {
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 1em;
+    padding: 2.4rem;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+
+    width: 90%;
+    max-width: 500px;
+}
+
+.error {
+    color: #FFFFFF;
+    background: rgb(226, 116, 116);
+    opacity: 1;
+    visibility: visible;
+}
 /**
 * ===== MODAL - FORM ======
 */
